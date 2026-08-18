@@ -12,12 +12,14 @@ public class ProdutoDAO {
     //Método para SALVAR/INSERIR um produto no banco
     public void cadastrar(Produto produto) {
 
-        //
+        //Aqui salva no banco os valores tanto do nome tanto quanto o preço
         String sql = "INSERT INTO produtos (nome, preco) VALUES (?, ?)";
+
 
         try (Connection conn = Conexao.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+            //Atribuindo valores para a query
             stmt.setString(1, produto.getNome());
             stmt.setDouble(2, produto.getPreco());
 
@@ -34,6 +36,7 @@ public class ProdutoDAO {
     //Método para LISTAR todos os produtos do banco
     public void listar() {
 
+        //Lista as entidades no banco
         String sql = "SELECT * FROM produtos";
 
         try (Connection conn = Conexao.conectar();
@@ -60,6 +63,7 @@ public class ProdutoDAO {
     //Método para atualizar produtos no banco
     public void atualizar(int id, String nome, double preco){
 
+        //Uma query para atualizar o banco de dados pelo ID
         String sql = "UPDATE produtos SET nome=?, preco=? WHERE id=?";
 
         try (Connection conn = Conexao.conectar();
@@ -82,6 +86,7 @@ public class ProdutoDAO {
     //Método para deletar um produto no banco
     public void excluir(int id) {
 
+        //Uma query para deletar os produtos pelo o ID
         String sql = "DELETE FROM produtos WHERE id=?";
 
         try (Connection conn = Conexao.conectar();

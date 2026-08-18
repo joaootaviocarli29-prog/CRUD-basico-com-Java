@@ -13,7 +13,9 @@ public class Conexao {
 
     //Método para obter conexão
     public static Connection conectar() {
+
         try {
+            //Tenta entrar no banco de dados, com as informações dada, se não entrar, mostre os dados do erro
             return DriverManager.getConnection(URL, USUARIO, SENHA);
         } catch (SQLException e) {
             System.out.println("Erro ao conectar com o banco de dados!");

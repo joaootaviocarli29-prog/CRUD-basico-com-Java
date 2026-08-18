@@ -26,6 +26,7 @@ import java.util.Scanner;
                  opcao = sc.nextInt();
                  sc.nextLine();
 
+                 //Switch case para o usuário, conseguir usar as query feitas no ProdutoDAO
                  switch (opcao) {
 
                      case 1:
